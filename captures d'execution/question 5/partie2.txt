@@ -1,0 +1,13 @@
+Valeurs ajoutées dans la table TRACE
+Lorsqu'une insertion est effectuée dans la table LOCATION, voici ce qui se passe en fonction des déclencheurs :
+
+Déclencheur TRIG_1 (BEFORE INSERT) : Pour chaque ligne insérée, une nouvelle ligne est ajoutée à la table TRACE avec le message 'Trigger 1'.
+Déclencheur TRIG_2 (BEFORE INSERT) : Ce déclencheur tenterait également d'ajouter une ligne à la table TRACE avec le message 'Trigger 2', mais il échouera en raison de l'erreur liée à nbValLog non définie.
+Déclencheur TRIG_3 (AFTER INSERT) : Après chaque insertion, une nouvelle ligne est ajoutée à la table TRACE avec le message 'Trigger 3'.
+Déclencheur TRIG_4 (AFTER INSERT) : Après chaque insertion, une nouvelle ligne est ajoutée à la table TRACE avec le message 'Trigger 4'.
+
+Ordre d'activation des déclencheurs
+L'ordre d'activation des déclencheurs dépend de leur type (BEFORE ou AFTER) et de leur numéro d'ordre d'activation :
+
+Déclencheurs BEFORE INSERT : Ils sont activés avant l'insertion effective dans la table. Dans ce cas, TRIG_1 s'exécutera avant TRIG_2 pour chaque ligne insérée.
+Déclencheurs AFTER INSERT : Ils sont activés après l'insertion effective dans la table. TRIG_3 s'exécutera avant TRIG_4 pour chaque ligne insérée.
